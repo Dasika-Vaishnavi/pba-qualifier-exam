@@ -39,7 +39,8 @@
 /// - d) i32
 /// - e) int
 pub fn answer_1_a() -> char {
-	todo!()
+	// todo!()
+  'd'
 }
 
 /// ### Question 1_B
@@ -52,7 +53,9 @@ pub fn answer_1_a() -> char {
 /// - d) Because the original `y` value was moved into z` on line 3.
 /// - e) Because it is being borrowed.
 pub fn answer_1_b() -> char {
-	todo!()
+	// todo!()
+  'c'
+  
 }
 
 /// ### Question 1_C
@@ -65,7 +68,8 @@ pub fn answer_1_b() -> char {
 /// - d) 0
 /// - e) 511
 pub fn answer_1_c() -> char {
-	todo!()
+	// todo!()
+  'b'
 }
 
 /// ### Question 1_D
@@ -78,7 +82,8 @@ pub fn answer_1_c() -> char {
 /// - d) `loop {}`
 /// - e) `for _ in vec![1, 2, 3] {}`
 pub fn answer_1_d() -> char {
-	todo!()
+	// todo!()
+  'a'
 }
 
 /// ## Question 2
@@ -110,7 +115,8 @@ pub fn answer_1_d() -> char {
 /// - d) It has the wrong return type.
 /// - e) The variable `result` is out of scope by the end.
 pub fn answer_2() -> char {
-	todo!()
+	// todo!()
+  'e'
 }
 
 /// ## Question 3
@@ -137,7 +143,8 @@ pub fn answer_2() -> char {
 /// - d) [4, 10, 18, 28, 40]
 /// - e) [28, 19, 12, 7, 4]
 pub fn answer_3_a() -> char {
-	todo!()
+	// todo!()
+  'b'
 }
 
 /// ### Question 3_B
@@ -151,7 +158,8 @@ pub fn answer_3_a() -> char {
 /// - d) `(1..n).step_by(1)`
 /// - e) `(1..=n).step_by(1)`
 pub fn answer_3_b() -> char {
-	todo!()
+	// todo!()
+  'b'
 }
 
 /// ## Question 4
@@ -172,7 +180,8 @@ pub fn answer_3_b() -> char {
 /// - d) Sorts the data "in place" by moving elements around.
 /// - e) Sorts the data and removes duplicate items.
 pub fn answer_4_a() -> char {
-	todo!()
+	// todo!()
+  'd'
 }
 
 /// ### Question 4_B
@@ -185,7 +194,8 @@ pub fn answer_4_a() -> char {
 /// - d) `fn sort(items: &mut [T: PartialOrd]);`
 /// - e) `fn sort(items: &mut [T: Ord]);`
 pub fn answer_4_b() -> char {
-	todo!()
+	// todo!()
+  'a'
 }
 
 /// ## Question 5
@@ -198,7 +208,8 @@ pub fn answer_4_b() -> char {
 /// - d) clippy
 /// - e) nvm
 pub fn answer_5() -> char {
-	todo!()
+	// todo!()
+ 'c'
 }
 
 /// ## Question 6
@@ -234,7 +245,8 @@ pub fn answer_5() -> char {
 /// - d) Yes, because the implementation of `From` implies an implementation of `Into`.
 /// - e) Yes, because the implementation of `Into` implies an implementation of `From`.
 pub fn answer_6() -> char {
-	todo!()
+	// todo!()
+  'd'
 }
 
 /// ## Question 7
@@ -277,20 +289,23 @@ pub fn answer_6() -> char {
 /// - d) No, because the potential `ParseIntError` is never handled.
 /// - e) Yes, because the `?` operator implicitly performs a `.into()` before returning the error.
 pub fn answer_7() -> char {
-	todo!()
+	// todo!()
+  'd'
 }
 
 /// This function is not graded. It is just for collecting feedback.
 /// On a scale from 0 - 255, with zero being extremely easy and 255 being extremely hard,
 /// how hard did you find this section of the exam.
 pub fn how_hard_was_this_section() -> u8 {
-	todo!()
+	// todo!()
+  50
 }
 
 /// This function is not graded. It is just for collecting feedback.
 /// How much time (in hours) did you spend on this section of the exam?
 pub fn how_many_hours_did_you_spend_on_this_section() -> u8 {
-	todo!()
+	// todo!()
+  1
 }
 
 #[cfg(test)]
@@ -365,3 +380,19 @@ mod tests {
 		sanity_check(&answer_7)
 	}
 }
+// fn main() {
+//     println!("Answer 1_A: {}", answer_1_a());
+//     println!("Answer 1_B: {}", answer_1_b());
+//     println!("Answer 1_C: {}", answer_1_c());
+//     println!("Answer 1_D: {}", answer_1_d());
+//     println!("Answer 2: {}", answer_2());
+//     println!("Answer 3_A: {}", answer_3_a());
+//     println!("Answer 3_B: {}", answer_3_b());
+//     println!("Answer 4_A: {}", answer_4_a());
+//     println!("Answer 4_B: {}", answer_4_b());
+//     println!("Answer 5: {}", answer_5());
+//     println!("Answer 6: {}", answer_6());
+//     println!("Answer 7: {}", answer_7());
+//     println!("How hard was this section? {}", how_hard_was_this_section());
+//     println!("How many hours did you spend on this section? {}", how_many_hours_did_you_spend_on_this_section());
+// }
