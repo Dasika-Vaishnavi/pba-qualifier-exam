@@ -11,7 +11,8 @@
 /// This function takes an iterator of u32 values, squares each value, and returns the sum of the
 /// squares. You may assume that no individual square, nor the entire sum, overflows the u32 type.
 pub fn sum_of_squares(vals: impl Iterator<Item = u32>) -> u32 {
-	todo!()
+	//todo!()
+  vals.map(|x| x*x).fold(0, |acc, x| acc + x)
 }
 
 /// This function takes an iterator of i32 values, calculates the absolute value of each, and throws
@@ -20,8 +21,10 @@ pub fn sum_of_squares(vals: impl Iterator<Item = u32>) -> u32 {
 pub fn bounded_absolute_values(vals: impl Iterator<Item = i32>) -> impl Iterator<Item = u32> {
 	// You should remove the following line (and this comment). It is just there because the
 	// compiler doesn't allow todo!() when the return type is impl Trait
-	Vec::new().into_iter()
+	// Vec::new().into_iter()
+  vals.filter_map(|x| if x.abs() <= 100 { Some(x.abs() as u32) } else { None })
 }
+
 
 // We allow `unused_mut` only so that there is no build warning on the starter code.
 // You should remove this line once you have completed the following function
@@ -36,7 +39,8 @@ pub fn bounded_absolute_values(vals: impl Iterator<Item = i32>) -> impl Iterator
 pub fn first_n_even(mut vals: impl Iterator<Item = u32>) -> Option<impl Iterator<Item = u32>> {
 	// You should remove the following line (and this comment). It is just there because the
 	// compiler doesn't allow todo!() when the return type is impl Trait
-	Some(Vec::new().into_iter())
+	// Some(Vec::new().into_iter())
+  vals.next().map(|n| vals.filter(|&x| x % 2 == 0).take(n as usize))
 }
 
 /// Return an "infinite" iterator that yields the squares of the whole numbers.
@@ -46,7 +50,8 @@ pub fn first_n_even(mut vals: impl Iterator<Item = u32>) -> Option<impl Iterator
 pub fn square_whole_numbers() -> impl Iterator<Item = u32> {
 	// You should remove the following line (and this comment). It is just there because the
 	// compiler doesn't allow todo!() when the return type is impl Trait
-	Vec::new().into_iter()
+	// Vec::new().into_iter()
+  (0u32..).map(|x| x*x)
 }
 
 /// An iterator that generates the Fibonacci sequence.
@@ -58,25 +63,47 @@ pub struct Fibonacci {
 	prev_prev: Option<u32>,
 }
 
+
 impl Iterator for Fibonacci {
-	type Item = u32;
+    type Item = u32;
+
 
 	fn next(&mut self) -> Option<u32> {
-		todo!()
+		// todo!()
+	let next = match (self.prev, self.prev_prev) {
+            (Some(prev), Some(prev_prev)) => {
+                let sum = prev + prev_prev;
+                self.prev_prev = self.prev;
+                self.prev = Some(sum);
+                Some(sum)
+            }
+            (None, None) => {
+                self.prev = Some(1);
+                Some(0)
+            }
+            (_, None) => {
+                self.prev_prev = self.prev;
+                self.prev = Some(1);
+                Some(1)
+            }
+            _ => None,
+        };
+        next
+    }
 	}
-}
-
 /// This function is not graded. It is just for collecting feedback.
 /// On a scale from 0 - 255, with zero being extremely easy and 255 being extremely hard,
 /// how hard did you find this section of the exam.
 pub fn how_hard_was_this_section() -> u8 {
-	todo!()
+	// todo!()
+  100
 }
 
 /// This function is not graded. It is just for collecting feedback.
 /// How much time (in hours) did you spend on this section of the exam?
 pub fn how_many_hours_did_you_spend_on_this_section() -> u8 {
-	todo!()
+	// todo!()
+  1
 }
 
 #[cfg(test)]
@@ -135,3 +162,28 @@ mod tests {
 		assert_eq!(expected, fib.take(7).collect::<Vec<_>>());
 	}
 }
+
+// fn main() {
+//     // Test sum_of_squares function
+//     let vals1 = vec![1, 2, 3];
+//     println!("Sum of squares: {}", sum_of_squares(vals1.into_iter()));
+
+//     // Test bounded_absolute_values function
+//     let vals2 = vec![1, 5, -5, 101, -200, 9, 0];
+//     println!("Bounded absolute values: {:?}", bounded_absolute_values(vals2.into_iter()).collect::<Vec<_>>());
+
+//     // Test first_n_even function
+//     let vals3 = vec![3, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//     if let Some(iter) = first_n_even(vals3.into_iter()) {
+//         println!("First n even values: {:?}", iter.collect::<Vec<_>>());
+//     } else {
+//         println!("No even values found");
+//     }
+
+//     // Test square_whole_numbers function
+//     println!("Square of whole numbers: {:?}", square_whole_numbers().take(6).collect::<Vec<_>>());
+
+//     // Test Fibonacci sequence
+//     let fib = Fibonacci::default();
+//     println!("Fibonacci sequence: {:?}", fib.take(7).collect::<Vec<_>>());
+// }
